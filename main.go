@@ -1,15 +1,11 @@
 package main
 
 import (
-    "fmt"
     "net/http"
 )
 
 func main() {
-    http.HandleFunc("/", HelloServer)
+	fs := http.FileServer(http.Dir("static"))
+	http.Handle("/",fs)
     http.ListenAndServe(":3000", nil)
-}
-
-func HelloServer(w http.ResponseWriter, r *http.Request) {
-    fmt.Fprint(w, "Hello World From Golang!")
 }
