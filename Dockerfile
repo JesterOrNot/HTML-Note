@@ -1,5 +1,5 @@
-FROM golang
+FROM node
 RUN apt-get update && apt-get install git
 WORKDIR /app
 RUN git clone https://github.com/JesterOrNot/Note-Taking.git
-CMD [ "go", "run", "Note-Taking/main.go" ]
+CMD [ "node","index.js" ]
