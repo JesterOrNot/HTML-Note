@@ -1,2 +1,3 @@
 FROM golang
-CMD [ "go","run","main.go" ]
+COPY . /app
+CMD [ "go","run","*.go" ]
