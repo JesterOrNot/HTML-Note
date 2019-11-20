@@ -48,8 +48,8 @@
         var node = document.createTextNode(z);
         para.appendChild(node);
         var element = document.getElementById("div1");
-        element.class = "html_node";
         element.appendChild(para);
+        element.class = "html_node";
     }
 </script>
 <style>
@@ -70,16 +70,14 @@
 		color: yellow;
 		display: inline;
 	}
-
-	.html_node {
-		text-align: center;
+	div > p {
+	    text-align: center;
 		size: 100%;
 		border-style: solid;
 		background-color: white;
 		color: #00ffa1;
 		font-size: 50px;
 	}
-
 	.main-page-button {
 		text-align: center;
 		border-radius: 100%;
