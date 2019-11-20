@@ -22,7 +22,7 @@
 </html>
 <script>
 	var list = [];
-    function addNote() {
+    function addAllNotes() {
         var z = prompt("add a note")
         if (z === null || z.length == 0) {
             alert("No empty notes!!");
@@ -37,6 +37,19 @@
             element.class = "html_node";
             element.appendChild(para);
         }
+    }
+    function addNote() {
+        var z = prompt("add a note")
+        if (z === null || z.length == 0) {
+            alert("No empty notes!!");
+            return;
+        }
+        var para = document.createElement("p");
+        var node = document.createTextNode(z);
+        para.appendChild(node);
+        var element = document.getElementById("div1");
+        element.class = "html_node";
+        element.appendChild(para);
     }
 </script>
 <style>
