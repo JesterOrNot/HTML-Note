@@ -1,7 +1,100 @@
 <!DOCTYPE html>
 <html>
-<button>new</button>
-<br>
-<h1>Welcome to my note taking app!</h1>
+
+<head>
+	<title>Note Taking App</title>
+</head>
+
+<body>
+	<h1 id="Welcome">Welcome to my note taking app</h1>
+	<div class="tooltip">
+		<button class="main-page-button" onclick="addNote()">New Note</button>
+		<p class="tooltiptext">Create a new note</p>
+	</div>
+	<div class="tooltip">
+		<button class="main-page-button">Settings</button>
+		<p class="tooltiptext">Open Settings</p>
+	</div>
+	<br>
+	<div id="div1"></div>
+</body>
 
 </html>
+<script>
+	var list = [];
+    function addNote() {
+        var z = prompt("add a note")
+        if (z === null || z.length == 0) {
+            alert("No empty notes!!");
+            return;
+        }
+        list.push(z);
+        for (var i = 0; i < list.length; i++) {
+            var para = document.createElement("p");
+            var node = document.createTextNode(list[i]);
+            para.appendChild(node);
+            var element = document.getElementById("div1");
+            element.class = "html_node";
+            element.appendChild(para);
+        }
+    }
+</script>
+<style>
+	#Welcome {
+		color: blue;
+		text-align: center;
+		border-style: solid;
+		border-color: green;
+		background-color: green;
+		border-radius: 25px;
+	}
+
+	body {
+		background-color: #0069AC;
+	}
+
+	h1 {
+		color: yellow;
+		display: inline;
+	}
+
+	.html_node {
+		text-align: center;
+		size: 100%;
+		border-style: solid;
+		background-color: white;
+		color: #00ffa1;
+		font-size: 50px;
+	}
+
+	.main-page-button {
+		text-align: center;
+		border-radius: 100%;
+		background-color: green;
+		border: 3px solid green;
+		padding: 30px 30px;
+	}
+
+	.tooltiptext {
+		visibility: hidden;
+		width: 120px;
+		background-color: black;
+		color: #fff;
+		position: absolute;
+		text-align: center;
+	}
+
+	.tooltip {
+		position: relative;
+		display: inline-block;
+		border-bottom: 1px dotted black;
+	}
+
+	div {
+		display: inline;
+	}
+
+	.tooltip:hover .tooltiptext {
+		visibility: visible;
+	}
+</style>
