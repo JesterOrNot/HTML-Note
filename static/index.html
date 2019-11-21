@@ -14,7 +14,7 @@
 		<p id="tool" class="tooltiptext">Create a new note</p>
 	</div>
 	<div class="tooltip">
-		<button class="main-page-button"><i class="fas fa-moon"></i></button>
+		<button class="main-page-button" onclick="darkTheme()"><i class="fas fa-moon"></i></button>
 		<p id="tool" class="tooltiptext">Dark Theme</p>
 	</div>
 	<div class="tooltip">
@@ -71,35 +71,39 @@
     }
     function lightTheme() {
         var root = document.querySelector(':root');
-        root.style.setProperty('--theme', '--light_body')
-        root.style.setProperty('--dark_body', '--light_body')
-        root.style.setProperty("--dark_button", "--light_button")
-        root.style.setProperty('--dark_text', '--light_text')
-        root.style.setProperty('--welcome_text_dark', '--welcome_text_light')
-        root.style.setProperty('--welcome_body_dark', '--welcome_body_light')
+        root.style.setProperty('--theme', '#F3F3F3')
+        root.style.setProperty('--body', '#F3F3F3')
+        root.style.setProperty("--button", "#31363F")
+        root.style.setProperty('--text', '#31363F')
+        root.style.setProperty('--welcome_text', '#31363F')
+        root.style.setProperty('--welcome_body', '#D6D8DA')
+    }
+    function darkTheme() {
+        var root = document.querySelector(':root');
+        root.style.setProperty('--theme', '#31363F');
+        root.style.setProperty('--body', '#31363F');
+        root.style.setProperty("--button", "#D6D8DA");
+        root.style.setProperty('--text', '#F3F3F3');
+        root.style.setProperty('--welcome_text', '#D6D8DA');
+        root.style.setProperty('--welcome_body', '#31363F');
     }
 </script>
 <style>
 	:root {
-		--light_body: #F3F3F3;
-		--light_text: #31363F;
-		--light_button: white;
-		--welcome_text_light: #31363F;
-		--welcome_body_light: #D6D8DA;
-		--welcome_body_dark: #31363F;
-		--welcome_text_dark: #D6D8DA;
-		--dark_body: #31363F;
-		--dark_text: #F3F3F3;
-		--dark_button: #D6D8DA;
+		--welcome_body: #31363F;
+		--welcome_text: #D6D8DA;
+		--body: #31363F;
+		--text: #F3F3F3;
+		--button: #D6D8DA;
 		--theme: #31363F;
 	}
 
 	#Welcome {
-		color: var(--welcome_text_dark);
+		color: var(--welcome_text);
 		text-align: center;
 		border-style: none;
 		display: inline;
-		background-color: var(--welcome_body_dark);
+		background-color: var(--welcome_body);
 		border-radius: 25px;
 	}
 
@@ -111,8 +115,8 @@
 		text-align: center;
 		resize: 120%;
 		border-style: solid;
-		background-color: var(--dark_body);
-		color: var(--dark_text);
+		background-color: var(--body);
+		color: var(--text);
 		font-size: 50px;
 	}
 
@@ -128,8 +132,8 @@
 	.main-page-button {
 		padding: 30px 30px;
 		text-align: center;
-		color: var(--dark_button);
-		background-color: var(--dark_body);
+		color: var(--button);
+		background-color: var(--body);
 	}
 
 	.tooltip {
