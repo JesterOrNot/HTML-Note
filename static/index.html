@@ -41,7 +41,7 @@
 <script>
 	var list = [];
     function addAllNotes() {
-        var z = prompt("add a note")
+        var z = prompt("add a note");
         if (z === null || z.length == 0) {
             alert("No empty notes!!");
             return;
@@ -57,7 +57,7 @@
         }
     }
     function addNote() {
-        var z = prompt("add a note")
+        var z = prompt("add a note");
         if (z === null || z.length == 0) {
             alert("No empty notes!!");
             return;
@@ -71,12 +71,12 @@
     }
     function lightTheme() {
         var root = document.querySelector(':root');
-        root.style.setProperty('--theme', '#F3F3F3')
-        root.style.setProperty('--body', '#F3F3F3')
-        root.style.setProperty("--button", "#31363F")
-        root.style.setProperty('--text', '#31363F')
-        root.style.setProperty('--welcome_text', '#31363F')
-        root.style.setProperty('--welcome_body', '#D6D8DA')
+        root.style.setProperty('--theme', '#F3F3F3');
+        root.style.setProperty('--body', '#F3F3F3');
+        root.style.setProperty("--button", "#31363F");
+        root.style.setProperty('--text', '#31363F');
+        root.style.setProperty('--welcome_text', '#31363F');
+        root.style.setProperty('--welcome_body', '#D6D8DA');
     }
     function darkTheme() {
         var root = document.querySelector(':root');
