@@ -2,42 +2,47 @@
 <html>
 
 <head>
-	<title>Note Taking App</title>
-	<link rel="icon" type="image/png" href="/images/favicon.ico">
-	<script src="https://kit.fontawesome.com/621f452ebe.js" crossorigin="anonymous"></script>
+    <title>Note Taking App</title>
+    <link rel="icon" type="image/png" href="/images/favicon.ico">
+    <script src="https://kit.fontawesome.com/621f452ebe.js" crossorigin="anonymous"></script>
 </head>
 
 <body>
-	<h1 id="Welcome">Welcome to my note taking app!</h1>
-	<div class="tooltip">
-		<button class="main-page-button" onclick="addNote()"><i class="fas fa-plus"></i></button>
-		<p id="tool" class="tooltiptext">Create a new note</p>
-	</div>
-    <div class="tooltip">
-		<button class="main-page-button" onclick="toggleTheme()"><i class="fas fa-adjust"></i></button>
-		<p id="tool" class="tooltiptext">Toggle Theme</p>
-	</div>
-	
-	<div class="tooltip">
-		<button class="main-page-button"><i class="fas fa-user-friends"></i></button>
-		<p id="tool" class="tooltiptext">Sign in</p>
-	</div>
-	<div class="tooltip">
-		<button class="main-page-button"><i class="fas fa-sign-out-alt"></i></button>
-		<p id="tool" class="tooltiptext">Sign out</p>
-	</div>
-	<div class="tooltip">
-		<button class="main-page-button" onclick="about()"><i class="far fa-question-circle"></i></button>
-		<p id="tool" class="tooltiptext">about</p>
-	</div>
-	<br>
-	<div id="div1"></div>
+    <ul>
+        <div class="tooltip" align="right">
+            <button class="main-page-button" onclick="addNote()"><i class="fas fa-plus"></i></button>
+            <p id="tool" class="tooltiptext">Create a new note</p>
+        </div>
+        <br>
+        <div class="tooltip">
+            <button class="main-page-button" onclick="toggleTheme()"><i class="fas fa-adjust"></i></button>
+            <p id="tool" class="tooltiptext">Toggle Theme</p>
+          </div>
+        <br>
+        <div class="tooltip">
+            <button class="main-page-button" onclick="wipPlaceHolder()"><i class="fas fa-user-friends"></i></button>
+            <p id="tool" class="tooltiptext">Sign in</p>
+        </div>
+        <br>
+        <div class="tooltip">
+            <button class="main-page-button" onclick="wipPlaceHolder()"><i class="fas fa-sign-out-alt"></i></button>
+            <p id="tool" class="tooltiptext">Sign out</p>
+        </div>
+        <br>
+        <div class="tooltip">
+            <button class="main-page-button" onclick="about()"><i class="far fa-question-circle"></i></button>
+            <span class="tooltiptext">about</span>
+        </div>
+    </ul>
+    <h1 id="Welcome">Welcome to my note taking app!</h1>
+    <br>
+    <div id="div1" style="margin-left:25%;padding:1px 16px;height:1000px;"></div>
 </body>
 
 </html>
 <script>
     var isDarkTheme = true;
-	var list = [];
+    var list = [];
     function addAllNotes() {
         var z = prompt("add a note");
         if (z === null || z.length == 0) {
@@ -68,7 +73,7 @@
         element.class = "html_node";
     }
     function about() {
-        alert("Made by Sean Hellum\nhttps://github.com/JesterOrNot");
+        alert("Made by Sean Hellum and Teddy Clarke\nhttps://github.com/JesterOrNot\nhttps://github.com/thecla1");
     }
     function lightTheme() {
         var root = document.querySelector(':root');
@@ -76,6 +81,7 @@
         root.style.setProperty('--body', '#F3F3F3');
         root.style.setProperty("--button", "#31363F");
         root.style.setProperty('--text', '#31363F');
+        root.style.setProperty("--menu", "#EBEAF0");
         root.style.setProperty('--welcome_text', '#31363F');
         root.style.setProperty('--welcome_body', '#F3F3F3');
         isDarkTheme = false;
@@ -86,9 +92,13 @@
         root.style.setProperty('--body', '#31363F');
         root.style.setProperty("--button", "#D6D8DA");
         root.style.setProperty('--text', '#F3F3F3');
+        root.style.setProperty("--menu", "#24292E");
         root.style.setProperty('--welcome_text', '#D6D8DA');
         root.style.setProperty('--welcome_body', '#31363F');
         isDarkTheme = true;
+    }
+    function wipPlaceHolder() {
+        alert("Sorry this is still a WIP.");
     }
     function toggleTheme() {
         if (isDarkTheme) {
@@ -99,64 +109,91 @@
     }
 </script>
 <style>
-	:root {
-		--welcome_body: #31363F;
-		--welcome_text: #D6D8DA;
-		--body: #31363F;
-		--text: #F3F3F3;
-		--button: #D6D8DA;
-		--theme: #31363F;
-	}
+    .tooltip {
+        position: relative;
+        display: inline-block;
+        border-bottom: 1px dotted black;
+    }
+    
+    .tooltip .tooltiptext {
+        visibility: hidden;
+        width: 120px;
+        background-color: black;
+        color: #fff;
+        text-align: center;
+        border-radius: 6px;
+        padding: 5px 0;
+        
+        /* Position the tooltip */
+        position: absolute;
+        z-index: 1;
+        top: -5px;
+        left: 105%;
+    }
+    
+    .tooltip:hover .tooltiptext {
+        visibility: visible;
+    }
+    .main-page-button {
+        padding: 30px 30px;
+        text-indent: 40px;
+        text-align: center;
+        color: var(--button);
+        background-color: var(--body);
+    }
+    :root {
+        --welcome_body: #31363F;
+        --welcome_text: #D6D8DA;
+        --menu: #24292E;
+        --body: #31363F;
+        --text: #F3F3F3;
+        --button: #D6D8DA;
+        --theme: #31363F;
+    }
 
-	#Welcome {
-		color: var(--welcome_text);
-		text-align: center;
-		border-style: none;
-		display: inline;
-		background-color: var(--welcome_body);
-		border-radius: 25px;
-	}
+    #Welcome {
+        color: var(--welcome_text);
+        text-align: center;
+        border-style: none;
+        display: inline;
+        background-color: var(--welcome_body);
+        float: right;
+        border-radius: 25px;
+    }
 
-	body {
-		background-color: var(--theme);
-	}
+    body {
+        background-color: var(--theme);
+        margin: 0;
+    }
 
-	div>p {
-		text-align: center;
-		resize: 120%;
-		border-style: solid;
-		background-color: var(--body);
-		color: var(--text);
-		font-size: 50px;
-	}
+    div>p {
+        text-align: center;
+        resize: 120%;
+        border-style: solid;
+        background-color: var(--body);
+        color: var(--text);
+        font-size: 50px;
+    }
 
-	.tooltiptext {
-		visibility: hidden;
-		width: 120px;
-		background-color: black;
-		color: #fff;
-		position: absolute;
-		text-align: center;
-	}
+    div {
+        display: inline;
+    }
 
-	.main-page-button {
-		padding: 30px 30px;
-		text-align: center;
-		color: var(--button);
-		background-color: var(--body);
-	}
-
-	.tooltip {
-		position: relative;
-		display: inline-block;
-		border-bottom: 1px dotted black;
-	}
-
-	div {
-		display: inline;
-	}
-
-	.tooltip:hover .tooltiptext {
-		visibility: visible;
-	}
+    ul {
+      list-style-type: none;
+      margin: 0;
+      padding: 0;
+      width: 11.76%;
+      background-color: var(--menu);
+      position: fixed;
+      height: 100%;
+      overflow: auto;
+    }
+    
+    li a {
+      display: block;
+      color: #000;
+      padding: 8px 16px;
+      text-decoration: none;
+    }
 </style>
