@@ -3,17 +3,19 @@
 
 <head>
 	<title>Note Taking App</title>
+	<link rel="icon" type="image/png" href="/images/favicon.ico">
+	<script src="https://kit.fontawesome.com/621f452ebe.js" crossorigin="anonymous"></script>
 </head>
 
 <body>
-	<h1 id="Welcome">Welcome to my note taking app</h1>
+	<h1 id="Welcome">Welcome to my note taking app!</h1>
 	<div class="tooltip">
 		<button class="main-page-button" onclick="addNote()">New Note</button>
-		<p class="tooltiptext">Create a new note</p>
+		<p id="tool" class="tooltiptext">Create a new note</p>
 	</div>
 	<div class="tooltip">
 		<button class="main-page-button">Settings</button>
-		<p class="tooltiptext">Open Settings</p>
+		<p id="tool" class="tooltiptext">Open Settings</p>
 	</div>
 	<br>
 	<div id="div1"></div>
@@ -54,35 +56,33 @@
 </script>
 <style>
 	#Welcome {
-		color: blue;
+		color: #D6D8DA;
 		text-align: center;
-		border-style: solid;
-		border-color: green;
-		background-color: green;
+		border-style: none;
+		display: inline;
+		background-color: #4CAF50;
 		border-radius: 25px;
 	}
 
 	body {
-		background-color: #0069AC;
+		background-color: #31363F;
 	}
 
-	h1 {
-		color: yellow;
-		display: inline;
-	}
-	div > p {
-	    text-align: center;
-		size: 100%;
+	div>p {
+		text-align: center;
+		resize: 120%;
 		border-style: solid;
 		background-color: white;
 		color: #00ffa1;
 		font-size: 50px;
 	}
+
 	.main-page-button {
 		text-align: center;
 		border-radius: 100%;
-		background-color: green;
-		border: 3px solid green;
+		color: white;
+		background-color: #4CAF50;
+		border: 3px solid #D6D8DA;
 		padding: 30px 30px;
 	}
 
