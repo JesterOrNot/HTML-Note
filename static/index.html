@@ -13,14 +13,11 @@
 		<button class="main-page-button" onclick="addNote()"><i class="fas fa-plus"></i></button>
 		<p id="tool" class="tooltiptext">Create a new note</p>
 	</div>
-	<div class="tooltip">
-		<button class="main-page-button" onclick="darkTheme()"><i class="fas fa-moon"></i></button>
-		<p id="tool" class="tooltiptext">Dark Theme</p>
+    <div class="tooltip">
+		<button class="main-page-button" onclick="toggleTheme()"><i class="fas fa-adjust"></i></button>
+		<p id="tool" class="tooltiptext">Toggle Theme</p>
 	</div>
-	<div class="tooltip">
-		<button class="main-page-button" onclick="lightTheme()"><i class="far fa-sun"></i></button>
-		<p id="tool" class="tooltiptext">Light Theme</p>
-	</div>
+	
 	<div class="tooltip">
 		<button class="main-page-button"><i class="fas fa-user-friends"></i></button>
 		<p id="tool" class="tooltiptext">Sign in</p>
@@ -39,11 +36,12 @@
 
 </html>
 <script>
+    var isDarkTheme = true;
 	var list = [];
     function addAllNotes() {
         var z = prompt("add a note");
         if (z === null || z.length == 0) {
-            alert("No empty notes!!");
+            alert("I refuse to make a empty note!!");
             return;
         }
         list.push(z);
@@ -59,7 +57,7 @@
     function addNote() {
         var z = prompt("add a note");
         if (z === null || z.length == 0) {
-            alert("No empty notes!!");
+            alert("I refuse to make a empty note!!");
             return;
         }
         var para = document.createElement("p");
@@ -80,6 +78,7 @@
         root.style.setProperty('--text', '#31363F');
         root.style.setProperty('--welcome_text', '#31363F');
         root.style.setProperty('--welcome_body', '#F3F3F3');
+        isDarkTheme = false;
     }
     function darkTheme() {
         var root = document.querySelector(':root');
@@ -89,6 +88,14 @@
         root.style.setProperty('--text', '#F3F3F3');
         root.style.setProperty('--welcome_text', '#D6D8DA');
         root.style.setProperty('--welcome_body', '#31363F');
+        isDarkTheme = true;
+    }
+    function toggleTheme() {
+        if (isDarkTheme) {
+            lightTheme();
+        } else {
+            darkTheme();
+        }
     }
 </script>
 <style>
