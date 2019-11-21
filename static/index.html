@@ -30,8 +30,8 @@
 		<p id="tool" class="tooltiptext">Sign out</p>
 	</div>
 	<div class="tooltip">
-		<button class="main-page-button"><i class="far fa-question-circle"></i></button>
-		<p id="tool" class="tooltiptext">Help</p>
+		<button class="main-page-button" onclick="about()"><i class="far fa-question-circle"></i></button>
+		<p id="tool" class="tooltiptext">about</p>
 	</div>
 	<br>
 	<div id="div1"></div>
@@ -68,6 +68,9 @@
         var element = document.getElementById("div1");
         element.appendChild(para);
         element.class = "html_node";
+    }
+    function about() {
+        alert("Made by Sean Hellum\nhttps://github.com/JesterOrNot");
     }
     function lightTheme() {
         var root = document.querySelector(':root');
