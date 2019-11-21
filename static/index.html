@@ -14,8 +14,12 @@
 		<p id="tool" class="tooltiptext">Create a new note</p>
 	</div>
 	<div class="tooltip">
-		<button class="main-page-button"><i class="fas fa-cog"></i></button>
-		<p id="tool" class="tooltiptext">Open Settings</p>
+		<button class="main-page-button"><i class="fas fa-moon"></i></button>
+		<p id="tool" class="tooltiptext">Dark Theme</p>
+	</div>
+	<div class="tooltip">
+		<button class="main-page-button" onclick="lightTheme()"><i class="far fa-sun"></i></button>
+		<p id="tool" class="tooltiptext">Light Theme</p>
 	</div>
 	<div class="tooltip">
 	    <button class="main-page-button"><i class="fas fa-user-friends"></i></button>
@@ -65,27 +69,49 @@
         element.appendChild(para);
         element.class = "html_node";
     }
+    function lightTheme() {
+        var root = document.querySelector(':root');
+        root.style.setProperty('--theme', '--light_body')
+        root.style.setProperty('--dark_body', '--light_body')
+        root.style.setProperty("--dark_button", "--light_button")
+        root.style.setProperty('--dark_text', '--light_text')
+        root.style.setProperty('--welcome_text_dark', '--welcome_text_light')
+        root.style.setProperty('--welcome_body_dark', '--welcome_body_light')
+    }
 </script>
 <style>
+    :root {
+        --light_body: #F3F3F3;
+        --light_text: #31363F;
+        --light_button: white;
+        --welcome_text_light: black;
+        --welcome_body_light: #D6D8DA;
+        --welcome_body_dark: black;
+        --welcome_text_dark: #D6D8DA;
+        --dark_body: #31363F;
+        --dark_text: #F3F3F3;
+        --dark_button: #D6D8DA;
+        --theme: #31363F;
+    }
 	#Welcome {
-		color: #D6D8DA;
+		color: var(--welcome_text_dark);
 		text-align: center;
 		border-style: none;
 		display: inline;
-		background-color: black;
+		background-color: var(--welcome_body_dark);
 		border-radius: 25px;
 	}
 
 	body {
-		background-color: #31363F;
+		background-color: var(--theme);
 	}
 
 	div>p {
 		text-align: center;
 		resize: 120%;
 		border-style: solid;
-		background-color: black;
-		color: white;
+		background-color: var(--dark_body);
+		color: var(--dark_text);
 		font-size: 50px;
 	}
 	.tooltiptext {
@@ -99,8 +125,8 @@
 	.main-page-button {
 	    padding: 30px 30px;
 	    text-align: center;
-	    color: white;
-	    background-color: black;
+	    color: var(--dark_button);
+	    background-color: var(--dark_body);
 	}
 
 	.tooltip {
