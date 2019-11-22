@@ -14,6 +14,11 @@
             <p id="tool" class="tooltiptext">Create a new note</p>
         </div>
         <br>
+        <div class="tooltip" align="right">
+            <button class="main-page-button" onclick="deleteAll()"><i class="fas fa-trash-alt"></i></button>
+            <p id="tool" class="tooltiptext">Trash All Notes</p>
+        </div>
+        <br>
         <div class="tooltip">
             <button class="main-page-button" onclick="toggleTheme()"><i class="fas fa-adjust"></i></button>
             <p id="tool" class="tooltiptext">Toggle Theme</p>
@@ -53,6 +58,13 @@
             var element = document.getElementById("div1");
             element.class = "html_node";
             element.appendChild(para);
+        }
+    }
+    function deleteAll() {
+        localStorage.list = [];
+        var div = document.getElementById("div1");
+        while(div.firstChild) {
+            div.removeChild(div.firstChild);
         }
     }
     function addNote() {
@@ -121,8 +133,6 @@
         text-align: center;
         border-radius: 6px;
         padding: 5px 0;
-
-        /* Position the tooltip */
         position: absolute;
         z-index: 1;
         top: -5px;
