@@ -43,13 +43,9 @@
 <script>
     var isDarkTheme = true;
     var list = [];
+    window.onload = addAllNotes();
     function addAllNotes() {
-        var z = prompt("add a note");
-        if (z === null || z.length == 0) {
-            alert("I refuse to make a empty note!!");
-            return;
-        }
-        list.push(z);
+        list = localStorage.getItem("list").split(",");
         for (var i = 0; i < list.length; i++) {
             var para = document.createElement("p");
             var node = document.createTextNode(list[i]);
@@ -71,9 +67,11 @@
         var element = document.getElementById("div1");
         element.appendChild(para);
         element.class = "html_node";
+        list.push(z);
+        localStorage.list = list;
     }
     function about() {
-        alert("Made by Sean Hellum and Teddy Clarke\nhttps://github.com/JesterOrNot\nhttps://github.com/thecla1");
+        alert("Made by: Sean Hellum and Teddy Clarke\nhttps://github.com/JesterOrNot\nhttps://github.com/thecla1");
     }
     function lightTheme() {
         var root = document.querySelector(':root');
