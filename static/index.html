@@ -11,27 +11,27 @@
 	<ul>
 		<div class="tooltip" align="right">
 			<button class="main-page-button" onclick="addNote()"><i class="fas fa-plus"></i></button>
-			<p id="tool" class="tooltiptext">Create a new note</p>
+			<span id="tool" class="tooltiptext">Create a new note</span>
 		</div>
 		<br>
 		<div class="tooltip" align="right">
 			<button class="main-page-button" onclick="deleteAll()"><i class="fas fa-trash-alt"></i></button>
-			<p id="tool" class="tooltiptext">Trash All Notes</p>
+			<span id="tool" class="tooltiptext">Trash All Notes</span>
 		</div>
 		<br>
 		<div class="tooltip">
 			<button class="main-page-button" onclick="toggleTheme()"><i class="fas fa-adjust"></i></button>
-			<p id="tool" class="tooltiptext">Toggle Theme</p>
+			<span id="tool" class="tooltiptext">Toggle Theme</span>
 		</div>
 		<br>
 		<div class="tooltip">
 			<button class="main-page-button" onclick="wipPlaceHolder()"><i class="fas fa-user-friends"></i></button>
-			<p id="tool" class="tooltiptext">Sign in</p>
+			<span id="tool" class="tooltiptext">Sign in</span>
 		</div>
 		<br>
 		<div class="tooltip">
 			<button class="main-page-button" onclick="wipPlaceHolder()"><i class="fas fa-sign-out-alt"></i></button>
-			<p id="tool" class="tooltiptext">Sign out</p>
+			<span id="tool" class="tooltiptext">Sign out</span>
 		</div>
 		<br>
 		<div class="tooltip">
@@ -193,11 +193,11 @@
 		list-style-type: none;
 		margin: 0;
 		padding: 0;
+		overflow: hidden
 		width: 11.76%;
 		background-color: var(--menu);
 		position: fixed;
 		height: 100%;
-		overflow: auto;
 	}
 
 	li a {
