@@ -46,7 +46,6 @@
     border-style: none;
     display: inline;
     background-color: var(--welcome_body);
-    float: right;
     border-radius: 25px;
 }
 
@@ -72,7 +71,8 @@ ul {
     list-style-type: none;
     margin: 0;
     padding: 0;
-    overflow: hidden width: 11.76%;
+    overflow: hidden;
+    width: 11.76%;
     background-color: var(--menu);
     position: fixed;
     height: 100%;
