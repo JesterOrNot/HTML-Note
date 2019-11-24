@@ -15,7 +15,7 @@ function addAllNotes() {
 function deleteAll() {
     localStorage.list = [];
     var div = document.getElementById("div1");
-    while(div.firstChild) {
+    while (div.firstChild) {
         div.removeChild(div.firstChild);
     }
 }
